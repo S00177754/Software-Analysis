@@ -46,17 +46,19 @@ namespace UnoGame
                 return cards.Count;
             }
         }
+        public List<Player> players;
 
         //Constructor
         public Deck(CardGame gameType)
         {
             cards = new List<Card>();
+            players = new List<Player>();
 
             switch (gameType)
             {
                 case 0:
                     GenerateUnoDeck();
-                    ShuffleDeck();
+                    //ShuffleDeck();
                     break;
 
                 default:
@@ -86,9 +88,59 @@ namespace UnoGame
 
         public void ShuffleDeck()
         {
-            
+            Random rng = new Random();
+            int listSpace = 0;
 
+            Card[] tempList = new Card[cards.Count];
 
+            for (int i = 0; i < cards.Count; i++)
+            {
+                bool spaceEmpty = true;
+
+                while (spaceEmpty)
+                {
+
+                    listSpace = rng.Next(0, cards.Count);
+
+                    if (tempList[listSpace] == null)
+                    {
+                         Debug.WriteLine("Reordered:" + listSpace);
+
+                        tempList[listSpace] = cards[i];
+                        spaceEmpty = false;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("TryAgain:" + listSpace);
+
+                        spaceEmpty = true;
+                    }
+                }
+            }
+
+            cards = tempList.ToList();
+
+        }
+
+        public void NewPlayer(string playerName,bool playing)
+        {
+            players.Add(new Player(playing, playerName));
+        }
+
+        public void DealCards(int amountOfCards)
+        {
+            foreach (var player in players)
+            {
+                if (player.IsActive)
+                {
+                    for (int i = 0; i < amountOfCards; i++)
+                    {
+                        Debug.WriteLine("Drawing");
+                        player.DrawCard(cards.First());
+                        cards.Remove(cards.First());
+                    }
+                }
+            }
         }
     }
     

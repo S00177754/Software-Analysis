@@ -28,7 +28,30 @@ namespace UnoGame
             InitializeComponent();
 
             unodeck = new Deck(Deck.CardGame.Uno);
+            lstBxUnoDeck.ItemsSource = unodeck.cards;
 
+            unodeck.NewPlayer("Me", true);
+            unodeck.NewPlayer("Me2", true);
+            lstBxPlayerOne.ItemsSource = unodeck.players[0].hand;
+            lstBxPlayerTwo.ItemsSource = unodeck.players[1].hand;
+        }
+
+        private void BtnShuffle_Click(object sender, RoutedEventArgs e)
+        {
+            unodeck.ShuffleDeck();
+            lstBxUnoDeck.ItemsSource = null;
+            lstBxUnoDeck.ItemsSource = unodeck.cards;
+        }
+
+        private void BtnDraw_Click(object sender, RoutedEventArgs e)
+        {
+            unodeck.DealCards(4);
+            lstBxPlayerOne.ItemsSource = null;
+            lstBxPlayerTwo.ItemsSource = null;
+            lstBxUnoDeck.ItemsSource = null;
+
+            lstBxPlayerOne.ItemsSource = unodeck.players[0].hand;
+            lstBxPlayerTwo.ItemsSource = unodeck.players[1].hand;
             lstBxUnoDeck.ItemsSource = unodeck.cards;
         }
     }
