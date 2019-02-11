@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace UnoGame
 {
@@ -21,11 +22,18 @@ namespace UnoGame
         }
         public bool HasCalledUno = false;
         public string Name;
+        private string Status { get; set; }
+        public bool Turn { get; set; } = false;
 
         //Constructor
         public Player(bool isActive,string name)
         {
             IsActive = isActive;
+            if (isActive)
+                Status = "Playing";
+            else
+                Status = "Not Playing";
+
             Name = name;
             hand = new List<Card>();
         }
@@ -33,13 +41,19 @@ namespace UnoGame
         //Override
         public override string ToString()
         {
-            return string.Format($"{Name} - {RemainingCards}");
+            return string.Format($"{Name} - {RemainingCards} - {Status}");
         }
 
         //Methods
-        public void ToggleActive()
+        public void Activate()
         {
-            IsActive = !IsActive;
+            IsActive = true;
+            Status = "Playing";
+        }
+        public void Unactivate()
+        {
+            IsActive = false;
+            Status = "Not Playing";
         }
 
         public bool CallPersonalUno()
@@ -62,6 +76,7 @@ namespace UnoGame
             }
             else
             {
+                MessageBox.Show("Selected player has more than 1 card or has called Uno already.");
                 return false;
             }
         }
@@ -71,6 +86,11 @@ namespace UnoGame
             hand.Add(card);
             Debug.WriteLine("Card Added To hand" +
                 card.ToString());
+        }
+
+        public void ClearHand()
+        {
+            hand = new List<Card>();
         }
     }
 }

@@ -46,19 +46,22 @@ namespace UnoGame
                 return cards.Count;
             }
         }
+
         public List<Player> players;
+        public List<Player> activePlayers;
 
         //Constructor
         public Deck(CardGame gameType)
         {
             cards = new List<Card>();
-            players = new List<Player>();
 
+            players = new List<Player>();
+            activePlayers = new List<Player>();
+            
             switch (gameType)
             {
                 case 0:
                     GenerateUnoDeck();
-                    //ShuffleDeck();
                     break;
 
                 default:

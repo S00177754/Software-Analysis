@@ -7,14 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Background="AntiqueWhite">
     <Grid>
-        <ListBox x:Name="lstBxUnoDeck" HorizontalAlignment="Left" Height="370" Margin="499,10,0,0" VerticalAlignment="Top" Width="269"/>
-        <Button x:Name="btnShuffle" Content="Shuffle" HorizontalAlignment="Left" Margin="403,22,0,0" VerticalAlignment="Top" Width="75" Click="BtnShuffle_Click"/>
-        <ListBox x:Name="lstBxPlayerOne" HorizontalAlignment="Left" Height="147" Margin="168,233,0,0" VerticalAlignment="Top" Width="146"/>
-        <ListBox x:Name="lstBxPlayerTwo" HorizontalAlignment="Left" Height="147" Margin="332,233,0,0" VerticalAlignment="Top" Width="146"/>
-        <Button x:Name="btnDraw" Content="Draw" HorizontalAlignment="Left" Margin="403,46,0,0" VerticalAlignment="Top" Width="75" Click="BtnDraw_Click"/>
-        <ListBox x:Name="lstBxPlayerList" HorizontalAlignment="Left" Height="100" Margin="10,22,0,0" VerticalAlignment="Top" Width="224"/>
-        <Button x:Name="btnAddPlayer" Content="Add Player" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnRemovePlayer" Content="Remove Player" HorizontalAlignment="Left" Margin="90,127,0,0" VerticalAlignment="Top" Width="75"/>
+        <ListBox x:Name="lstBxUnoDeck" HorizontalAlignment="Left" Height="41" Margin="8,345,0,0" VerticalAlignment="Top" Width="211"/>
+        <Button x:Name="btnShuffle" Content="Shuffle" HorizontalAlignment="Left" Margin="8,391,0,0" VerticalAlignment="Top" Width="98" Click="BtnShuffle_Click"/>
+        <ListBox x:Name="lstBxPlayerCards" HorizontalAlignment="Left" Height="204" Margin="459,42,0,0" VerticalAlignment="Top" Width="327"/>
+        <Button x:Name="btnDeal" Content="Deal" HorizontalAlignment="Left" Margin="111,391,0,0" VerticalAlignment="Top" Width="108" Click="BtnDraw_Click"/>
+        <ListBox x:Name="lstBxPlayerList" HorizontalAlignment="Left" Height="162" Margin="10,33,0,0" VerticalAlignment="Top" Width="209"/>
+        <Button x:Name="btnAddPlayer" Content="Add Player" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="105" Click="BtnAddPlayer_Click"/>
+        <Button x:Name="btnRemovePlayer" Content="Remove Player" HorizontalAlignment="Left" Margin="120,227,0,0" VerticalAlignment="Top" Width="99" Click="BtnRemovePlayer_Click"/>
+        <Button x:Name="btnPlayCard" Content="Play" HorizontalAlignment="Left" Margin="459,251,0,0" VerticalAlignment="Top" Width="104" Click="BtnPlayCard_Click"/>
+        <Button x:Name="btnDrawCard" Content="Draw" HorizontalAlignment="Left" Margin="570,251,0,0" VerticalAlignment="Top" Width="103" Click="BtnDrawCard_Click"/>
+        <Button x:Name="btnCallUno" Content="Call Uno" HorizontalAlignment="Left" Margin="680,251,0,0" VerticalAlignment="Top" Width="104" Click="BtnCallUno_Click"/>
+        <TextBlock x:Name="txBkActivePlayer" HorizontalAlignment="Left" Margin="459,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="325" Background="White" TextAlignment="Center"/>
+        <TextBox x:Name="txBxAddPlayerName" HorizontalAlignment="Left" Height="22" Margin="55,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+        <Label x:Name="lblAddPlayerName" Content="Name:" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Height="27" Width="45"/>
+        <Button x:Name="btnMakeActive" Content="Activate" HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top" Width="105" Click="BtnMakeActive_Click"/>
+        <Button x:Name="btnMakeUnactive" Content="Unactivate" HorizontalAlignment="Left" Margin="120,251,0,0" VerticalAlignment="Top" Width="99" Click="BtnMakeUnactive_Click"/>
 
     </Grid>
 </Window>
